@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Github, Linkedin, Mail, Code2, Briefcase, BookOpen } from 'lucide-react';
 
-// Featured projects preview করার জন্য
+// Featured projects preview 
 async function getFeaturedProjects() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/projects`, {
@@ -13,13 +13,13 @@ async function getFeaturedProjects() {
     });
     if (!res.ok) return [];
     const data = await res.json();
-    return data.data.slice(0, 3); // শুধু প্রথম 3টা
+    return data.data.slice(0, 3); 
   } catch (error) {
     return [];
   }
 }
 
-// Latest blogs preview করার জন্য
+
 async function getLatestBlogs() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/blogs`, {
@@ -27,7 +27,7 @@ async function getLatestBlogs() {
     });
     if (!res.ok) return [];
     const data = await res.json();
-    return data.data.slice(0, 3); // শুধু প্রথম 3টা
+    return data.data.slice(0, 3); 
   } catch (error) {
     return [];
   }
