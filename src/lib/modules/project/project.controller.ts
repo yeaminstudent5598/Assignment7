@@ -22,7 +22,7 @@ export const ProjectController = {
   getAllProjects: () => ProjectService.findAll(),
 
   getProjectById: async (req: NextRequest, { params: awaitedParams }: { params: Promise<{ id: string }> }) => {
-    const params = await awaitedParams; // ✅ await করা হলো
+    const params = await awaitedParams;
     return ProjectService.findById(params.id);
   },
 
