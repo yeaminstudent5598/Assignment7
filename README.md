@@ -154,6 +154,7 @@ Open http://localhost:3000 in your browser.
 
 📁 Project Structure
 
+``` bash
 portfolio-fullstack/
 ├── prisma/
 │   ├── schema.prisma        # Database schema
@@ -175,7 +176,7 @@ portfolio-fullstack/
         ├── utils/           # Utility functions (e.g., jwt.ts)
         └── validations/     # Zod schemas
 
-
+```
 🚀 Deployment
 
 This project is optimized for deployment on Vercel.
