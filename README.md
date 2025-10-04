@@ -4,7 +4,7 @@ A modern, full-stack portfolio website built with **Next.js 15**, featuring a dy
 
 ## 🔗 Live Links
 
-- **Frontend:** https://your-portfolio-domain.vercel.app  
+- **Frontend:** https://portfolio-fullstack-three-livid.vercel.app/  
 - **Demo Video:** https://youtube.com/your-video-link  
 
 ## 🔐 Admin Credentials
