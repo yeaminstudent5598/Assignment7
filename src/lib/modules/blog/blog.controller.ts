@@ -16,9 +16,9 @@ export const BlogController = {
   createBlog: async (request: NextRequest) => {
   await checkAdmin();
   const body = await request.json();
-  console.log('Received body:', body); // এটা দেখুন
+  console.log('Received body:', body); 
   const validatedData = createBlogSchema.parse(body);
-  console.log('Validated data:', validatedData); // এটাও দেখুন
+  console.log('Validated data:', validatedData); 
   return await BlogService.create(validatedData);
   },
 
