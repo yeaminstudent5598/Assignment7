@@ -1,32 +1,27 @@
-// src/app/(private)/layout.tsx
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/authOptions';
+import { redirect } from 'next/navigation';
+import DashboardNav from './dashboard/DashboardNav';
+import DashboardSidebar from './dashboard/DashboardSidebar';
 
-// একটি সাধারণ ড্যাশবোর্ড Navbar
-function DashboardNav() {
-    return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background">
-            <div className="container flex h-14 items-center justify-between">
-                <Link href="/dashboard" className="font-bold">
-                    Admin Dashboard
-                </Link>
-                <Button variant="outline" asChild>
-                    <Link href="/api/auth/signout">Logout</Link>
-                </Button>
-            </div>
-        </header>
-    );
-}
-
-export default function PrivateLayout({
+export default async function PrivateLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // এই লেআউটের অধীনে থাকা সব পেজের জন্য সেশন চেক
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect('/login');
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <DashboardNav />
-      <main className="flex-grow">{children}</main>
+      <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+        <DashboardSidebar />
+        <main className="flex-1 py-6">{children}</main>
+      </div>
     </div>
   );
 }

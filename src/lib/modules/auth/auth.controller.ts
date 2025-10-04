@@ -2,12 +2,20 @@
 import { NextRequest } from 'next/server';
 import { AuthService } from './auth.service';
 import { loginUserSchema } from './auth.validation';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/authOptions';
+import { changePasswordSchema } from '@/lib/validations/auth';
 
 export const AuthController = {
-  login: async (request: NextRequest) => {
+  changePassword: async (request: NextRequest) => {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      throw { message: 'Unauthenticated.', statusCode: 401 };
+    }
+
     const body = await request.json();
-    const validatedData = loginUserSchema.parse(body);
-    const result = await AuthService.login(validatedData);
-    return result; // শুধু ডেটা রিটার্ন করবে
+    const validatedData = changePasswordSchema.parse(body);
+
+    return await AuthService.changePassword(session.user.id, validatedData);
   },
 };

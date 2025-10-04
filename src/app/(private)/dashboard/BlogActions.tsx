@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import {
@@ -42,8 +43,8 @@ export default function BlogActions({ blogId }: { blogId: string }) {
 
   return (
     <div className="space-x-2">
-      <Button variant="outline" size="sm" disabled> {/* Edit button for later */}
-        Edit
+      <Button variant="outline" size="sm" asChild>
+        <Link href={`/dashboard/blogs/edit/${blogId}`}>Edit</Link>
       </Button>
       <AlertDialog>
         <AlertDialogTrigger asChild>
@@ -60,7 +61,9 @@ export default function BlogActions({ blogId }: { blogId: string }) {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>Continue</AlertDialogAction>
+            <AlertDialogAction onClick={handleDelete} className="bg-destructive hover:bg-destructive/90">
+              Continue
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

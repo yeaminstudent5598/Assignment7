@@ -25,17 +25,20 @@ model Blog {
   id        String   @id @default(uuid())
   title     String
   content   String
+  thumbnail String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Project {
-  id          String   @id @default(uuid())
-  name        String
-  description String
-  liveLink    String
-  repoLink    String
-  thumbnail   String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(cuid())
+  title        String   @default("Untitled Project") // <-- temporary default
+  description  String   @db.Text
+  thumbnail    String?
+  liveLink     String?
+  githubLink   String?
+  features     String   @db.Text
+  technologies String   @db.Text @default("") 
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

@@ -1,14 +1,25 @@
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans'; // <-- সঠিক ইম্পোর্ট
-import { GeistMono } from 'geist/font/mono';   // <-- সঠিক ইম্পোর্ট
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import './globals.css';
 import AuthProvider from '@/components/providers/AuthProvider';
 import { Toaster } from '@/components/ui/sonner';
-import { cn } from '@/lib/utils'; // shadcn থেকে আসা একটি helper ফাংশন
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Portfolio Admin',
-  description: 'Portfolio management dashboard',
+  // ডিফল্ট টাইটেল এবং টাইটেল টেমপ্লেট
+  title: {
+    default: "Yeamin Madbor's Portfolio",
+    template: `%s | Yeamin Madbor`,
+  },
+  description: 'A personal portfolio website showcasing projects and skills by Yeamin Madbor, a full-stack developer.',
+  openGraph: {
+    title: "Yeamin Madbor's Portfolio",
+    description: 'A personal portfolio website.',
+    type: 'website',
+    locale: 'en_US',
+    url: 'yeaminmadbor.com', // আপনার লাইভ ডোমেইন দিন
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +32,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          GeistSans.variable, // <-- ভ্যারিয়েবলগুলো এখানে যোগ করুন
+          GeistSans.variable,
           GeistMono.variable
         )}
       >
