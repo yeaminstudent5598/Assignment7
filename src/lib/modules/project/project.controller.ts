@@ -40,3 +40,4 @@ export const ProjectController = {
     return ProjectService.remove(params.id);
   },
 };
+ 

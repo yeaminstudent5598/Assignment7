@@ -13,3 +13,4 @@ export const ProjectService = {
     prisma.project.update({ where: { id }, data }),
   remove: (id: string) => prisma.project.delete({ where: { id } }),
 };
+ 

@@ -9,5 +9,5 @@ export const projectSchema = z.object({
   githubLink: z.string().url({ message: 'Please provide a valid URL.' }).optional().or(z.literal('')),
   thumbnail: z.string().url({ message: 'Please provide a valid image URL.' }).optional().or(z.literal('')),
 });
-
+ 
 export const updateProjectSchema = projectSchema.partial();
