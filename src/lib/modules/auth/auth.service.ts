@@ -9,10 +9,9 @@ export const AuthService = {
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
-      return null; // ইউজার না পাওয়া গেলে বা পাসওয়ার্ড না মিললে null রিটার্ন করুন
+      return null; 
     }
 
-    // পাসওয়ার্ড বাদ দিয়ে শুধু ইউজার অবজেক্ট রিটার্ন করুন
     const { password: _, ...userWithoutPassword } = user;
     return userWithoutPassword;
   },
