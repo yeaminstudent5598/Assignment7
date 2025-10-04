@@ -1,7 +1,7 @@
 import prisma from '@/lib/db';
 import type { Prisma } from '@prisma/client';
 import bcrypt from 'bcryptjs';
-
+ 
 export const UserService = {
   create: async (userData: Prisma.UserCreateInput) => {
     const { email, password } = userData;
