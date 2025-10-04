@@ -32,7 +32,7 @@ model Blog {
 
 model Project {
   id           String   @id @default(cuid())
-  title        String   @default("Untitled Project") // <-- temporary default
+  title        String   @default("Untitled Project") 
   description  String   @db.Text
   thumbnail    String?
   liveLink     String?
