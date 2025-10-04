@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/table';
 import ProjectActions from '../ProjectActions';
 
-// প্রজেক্ট ডেটার জন্য একটি টাইপ
+
 interface Project {
   id: string;
   title: string;
@@ -25,16 +25,16 @@ interface Project {
   createdAt: string;
 }
 
-// সার্ভার থেকে প্রজেক্টগুলো ফেচ করার ফাংশন
+
 async function getProjects(): Promise<Project[]> {
-  // সার্ভার-সাইড ফেচের জন্য কুকি প্রয়োজন
+
   const cookie = (await cookies()).get('next-auth.session-token')?.value;
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/projects`, {
     headers: {
       Cookie: `next-auth.session-token=${cookie}`,
     },
-    cache: 'no-store', // ড্যাশবোর্ডের জন্য সবসময় নতুন ডেটা দরকার
+    cache: 'no-store', 
   });
 
   if (!res.ok) {
