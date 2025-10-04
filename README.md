@@ -1,128 +1,90 @@
-Portfolio Website
+# 📌 Portfolio Website
 
-A modern, full-stack portfolio website built with Next.js 15, featuring a dynamic blog, project showcase, and a secure admin dashboard.
+A modern, full-stack portfolio website built with **Next.js 15**, featuring a dynamic blog, project showcase, and a secure admin dashboard.
 
-🔗 Live Links
+## 🔗 Live Links
 
-Frontend: https://your-portfolio-domain.vercel.app
+- **Frontend:** https://your-portfolio-domain.vercel.app  
+- **Demo Video:** https://youtube.com/your-video-link  
 
-Demo Video: https://youtube.com/your-video-link
+## 🔐 Admin Credentials
 
-🔐 Admin Credentials
+- **Email:** admin@example.com  
+- **Password:** adminpassword123 (Set in `prisma/seed.ts`)  
 
-Email: admin@example.com
+## ✨ Features
 
-Password: adminpassword123 (Set in your prisma/seed.ts file)
+### 🔹 Public Features
+- Modern and responsive homepage with hero section  
+- Dynamic blog listing page (ISR – Incremental Static Regeneration)  
+- Individual blog detail pages with rich text content, statically generated for speed  
+- Dynamic project showcase page  
+- About Me section with skills and work experience  
+- Fully responsive design for all devices  
 
-✨ Features
+### 🔹 Admin Features
+- Secure authentication managed by NextAuth.js  
+- Private admin dashboard with sidebar layout  
+- Full CRUD functionality for blogs  
+- Full CRUD functionality for projects  
+- Rich text editor for blog/project content using TipTap  
+- Admin password change functionality  
+- Protected routes and API endpoints for owner-only access  
 
-Public Features
+### 🔹 Technical Features
+- SSR, SSG, and ISR supported  
+- Type-safe API routes using Zod validation  
+- Centralized API error handling  
+- Optimized images using Next.js Image component  
+- Modern toast notifications with Sonner  
+- Professional form validation using React Hook Form  
+- Accessible UI components built with shadcn/ui  
 
-Modern and responsive homepage with hero section.
+## 🛠️ Tech Stack
 
-Dynamic blog listing page with ISR (Incremental Static Regeneration).
+### Frontend
+- Framework: Next.js 15 (App Router)  
+- Language: TypeScript  
+- Styling: Tailwind CSS  
+- UI Components: shadcn/ui  
+- Form Handling: React Hook Form + Zod  
+- Authentication: NextAuth.js  
+- Rich Text Editor: TipTap  
+- Notifications: Sonner  
+- Icons: Lucide React  
 
-Individual blog detail pages with rich text content, generated statically for speed.
+### Backend
+- Framework: Next.js API Routes  
+- Database: PostgreSQL  
+- ORM: Prisma  
 
-Dynamic project showcase page.
+### Deployment
+- Platform: Vercel  
+- Database: Neon PostgreSQL  
 
-"About Me" section with skills and work experience.
+## 📦 Installation & Setup
 
-Fully responsive design for all devices.
+### Prerequisites
+- Node.js v18+  
+- pnpm (or npm/yarn)  
+- A PostgreSQL database (e.g., Neon)  
 
-Admin Features
-
-Secure authentication managed by NextAuth.js.
-
-Private admin dashboard with a professional sidebar layout.
-
-Full CRUD (Create, Read, Update, Delete) functionality for blogs.
-
-Full CRUD functionality for projects.
-
-Rich text editor for blog/project content using TipTap.
-
-Admin password change functionality.
-
-Protected routes and API endpoints for owner-only access.
-
-Technical Features
-
-Server-Side Rendering (SSR), Static Site Generation (SSG), and Incremental Static Regeneration (ISR).
-
-Type-safe API routes with Zod validation.
-
-Centralized error handling for APIs.
-
-Optimized images with Next.js Image component.
-
-Modern toast notifications with Sonner.
-
-Professional form validation with React Hook Form.
-
-Accessible UI components built with shadcn/ui.
-
-🛠️ Tech Stack
-
-Frontend
-
-Framework: Next.js 15 (App Router)
-
-Language: TypeScript
-
-Styling: Tailwind CSS
-
-UI Components: shadcn/ui
-
-Form Handling: React Hook Form + Zod
-
-Authentication: NextAuth.js
-
-Rich Text Editor: TipTap
-
-Notifications: Sonner
-
-Icons: Lucide React
-
-Backend
-
-Framework: Next.js API Routes
-
-Database: PostgreSQL
-
-ORM: Prisma
-
-Deployment
-
-Platform: Vercel
-
-Database: Neon
-
-📦 Installation & Setup
-
-Prerequisites
-
-Node.js v18+
-
-pnpm (or npm/yarn)
-
-A PostgreSQL database (e.g., from Neon)
-
-1. Clone Repository
-
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+### 1. Clone Repository
+```bash
+git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
+```
 
 
-2. Install Dependencies
-
+### 2. Install Dependencies
+```bash
 pnpm install
+```
 
-
-3. Environment Setup
+### 3. Environment Setup
 
 Create a .env file in the root directory and add the following variables:
-
+```bash
 # Database Connection String from Neon
 DATABASE_URL="postgresql://username:password@host/database?sslmode=require"
 
@@ -131,10 +93,10 @@ AUTH_SECRET="your-super-secret-key-for-next-auth"
 
 # Base URL for local development
 NEXT_PUBLIC_API_BASE_URL="http://localhost:3000"
+```
 
-
-4. Database Setup
-
+### 4. Database Setup
+```bash
 # Generate Prisma Client based on your schema
 pnpm exec prisma generate
 
@@ -143,12 +105,12 @@ pnpm exec prisma migrate dev
 
 # Seed the database with the initial admin user
 pnpm exec prisma db seed
+```
 
-
-5. Run Development Server
-
+### 5. Run Development Server
+```bash
 pnpm run dev
-
+```
 
 Open http://localhost:3000 in your browser.
 
@@ -177,7 +139,7 @@ portfolio-fullstack/
         └── validations/     # Zod schemas
 
 ```
-🚀 Deployment
+### 🚀 Deployment
 
 This project is optimized for deployment on Vercel.
 
@@ -190,17 +152,17 @@ Add the production environment variables in Vercel's project settings.
 Deploy!
 
 Environment Variables for Production
-
+```bash
 DATABASE_URL="your-production-database-url"
 AUTH_SECRET="your-production-secret"
 NEXT_PUBLIC_API_BASE_URL="[https://your-live-domain.com](https://your-live-domain.com)"
+```
 
-
-📝 API Endpoints
+### 📝 API Endpoints
 
 All endpoints are prefixed with /api/v1.
 
-Authentication
+## Authentication
 
 POST /api/auth/signin: (Handled by NextAuth)
 
@@ -208,7 +170,7 @@ POST /api/auth/signout: (Handled by NextAuth)
 
 PATCH /api/v1/auth/change-password: Change admin password (Protected)
 
-Blogs
+## Blogs
 
 GET /api/v1/blogs: Get all blogs.
 
@@ -220,7 +182,7 @@ PATCH /api/v1/blogs/[id]: Update a blog (Protected).
 
 DELETE /api/v1/blogs/[id]: Delete a blog (Protected).
 
-Projects
+## Projects
 
 GET /api/v1/projects: Get all projects.
 
@@ -232,10 +194,10 @@ PATCH /api/v1/projects/[id]: Update a project (Protected).
 
 DELETE /api/v1/projects/[id]: Delete a project (Protected).
 
-👤 Author
+## 👤 Author
 
-Yeamin Madbor
+# Yeamin Madbor
 
-GitHub: [@your-github-username](https://github.com/your-github-username)
+GitHub: [Yeamin-Github](https://github.com/yeaminstudent5598)
 
-LinkedIn: [Your Name](https://linkedin.com/in/your-linkedin-profile)
+LinkedIn: [Yeamin Madbor](https://www.linkedin.com/in/yeamin-madbor-83b3302b8/)
