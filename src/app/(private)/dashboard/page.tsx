@@ -21,7 +21,7 @@ interface Blog {
   title: string;
   createdAt: string;
 }
-
+ 
 async function getBlogs(): Promise<Blog[]> {
   const sessionCookie = (await cookies()).get('next-auth.session-token')?.value;
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/blogs`, {
