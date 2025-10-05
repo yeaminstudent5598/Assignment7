@@ -7,18 +7,24 @@ import { Toaster } from '@/components/ui/sonner';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  // ডিফল্ট টাইটেল এবং টাইটেল টেমপ্লেট
   title: {
     default: "Yeamin Madbor's Portfolio",
     template: `%s | Yeamin Madbor`,
   },
   description: 'A personal portfolio website showcasing projects and skills by Yeamin Madbor, a full-stack developer.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: "Yeamin Madbor's Portfolio",
     description: 'A personal portfolio website.',
     type: 'website',
     locale: 'en_US',
-    url: 'yeaminmadbor.com', // আপনার লাইভ ডোমেইন দিন
+    url: 'https://yeaminmadbor.com',
   },
 };
 
